@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="utf-8">
+    <meta charset="Shift-JIS">
 <!-- jQuery本体 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <!-- jquery-csv -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.11/jquery.csv.min.js"></script>
-<!--
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="./jquery.csv.js"></script>
--->
-    <script>
+<script>
     
 $(function() {
 
@@ -20,6 +16,8 @@ $(function() {
     var csv = $.csv.toArrays(data);
 
     var insert = '';
+    var str = [];
+
     $(csv).each(function(i) {
       if (this.length > 0) {
         insert += '<tr>';
@@ -28,93 +26,94 @@ $(function() {
         });
         insert += '</tr>';
       }
+      str.push(this[0] + '\n');
+ 
       var target = (i === 0) ? "thead" : "tbody";
       $("#result "+target).append(insert);
       insert = "";
     });
 
-    //const messageNo = Math.floor( Math.random() * messages.length);
-    //insert[messageNo];
-
   }
 
   // CSVの読み込み
-  $.get('index.csv', parseCsv, 'text');
+  $.get('data1.csv', parseCsv, 'text');
+  //const messageNo = Math.floor( Math.random() * str.length);
+
+
 
 });
 
+    function breakthrough() {
+       const messages = [
+'これまでで一番強くかつ攻撃的な _resv_',
+'ここ数年で一番出来が良い _resv_',
+'10年に1度の _resv_',
+'近年まれにみるワインの出来で過去10年間でトップクラスな _resv_',
+'10年に1度の _resv_ 当たり年',
+'1000年代最後の新酒ワインは近年にない _resv_',
+'今世紀最後の新酒ワインは色鮮やか、甘みがある _resv_',
+'ここ10年で最高の _resv_',
+'過去10年で最高と言われた01年を上回る _resv_',
+'1995年以来の _resv_',
+'100年に1度の出来、近年にない良い _resv_',
+'香りが強く中々の _resv_ 栄え',
+'ここ数年で最高、タフな03年とはまた違い、本来の軽さを備え、これぞ『ザ・ヌーボー』 _resv_',
+'今も語り継がれる76年や05年に近い _resv_',
+'柔らかく果実味が豊かで上質な _resv_',
+'豊かな果実味と程よい酸味が調和した _resv_',
+'過去最高と言われた05年に匹敵する50年に１度の _resv_ 栄え',
+'2009年と同等の _resv_',
+'今年は天候が良かった為、昨年並みの仕上がり。爽やかでバランスが良い _resv_',
+'100年に1度の出来とされた03年を超す21世紀最高の _resv_ 栄え',
+'出来が良く、豊満で絹のように滑らかな _resv_',
+'ボジョレー史上最悪の不作 _resv_',
+'糖度と酸度のバランスが良く、軽やかでフルーティーな仕上がりの _resv_',
+'みずみずしさが感じられる素晴らしい品質の _resv_',
+'2009年の50年に一度のできを超える味わいの _resv_',
+'エレガントで味わい深く、とてもバランスがよい _resv_',
+'今世紀で最高の _resv_',
+'エレガントで酸味と果実味のバランスがとれた上品な _resv_',
+'豊満で朗らか、絹のようにしなやか。しかもフレッシュで輝かしい _resv_',
+'理想的な条件の元、素晴らしいヴィンテージへの期待高まる _resv_',
+'生産者のテクニックが重要な _resv_',
+'凝縮した果実味と上品な酸味が味わえる _resv_',
+'極めて早い成熟と乾燥した夏による、究極のミレジム（ヴィンテージ）、 _resv_'];
+        const messageNo = Math.floor( Math.random() * messages.length);
+
+        var nouveau = "";
+        nouveau = nouveau + messages[messageNo] + '\n';
+        nouveau = nouveau.replace('_resv_', document.getElementById('fname').value);
+    	document.getElementById('nouveau').value = nouveau;
+    }
 
     </script>
 </head>
 <body>
+<!--
   <table id="result">
     <thead></thead>
     <tbody></tbody>
-  </table>
+  </table>-->
+    <p><label for="fname">味わいたいものを入力してください:</label><input type="text" id="fname" name="fname"><br></p>
+    <p><input type="button" value="ボジョる" onclick="breakthrough();"></p>
+    <p><textarea cols="80" rows="10" id="nouveau">ここにキャッチコピーを生成します</textarea></p>
+
 </body>
 </html>
 <!--
 <html>
 <body>
 <script type="text/javascript" charset="UTF-8">
-    function breakthrough() {
-        var conv = "";
-        const messages = ['問題解決こそが仕事でありますぞ。',
-                          '本当の仕事とは、何か大きな問題に直面したときから始まる。',
-                          'プロ、もしくはプロであるべきポジションの仕事人の無自覚や無神経さを「まぬけ」と呼びます。',
-                          '例えば「どこでもつながる携帯電話」というのを考えるとしましょう。これは理想として言えば、世界中のどこに行ってもつながる、地下だろうが高い山のてっぺんだろうが、太平洋のど真ん中だろうが通話ができるっていうのが理想じゃありませんか？'];
-        const messageNo = Math.floor( Math.random() * messages.length);
-
-        var mackytext = "";
-    	//mackytext =  mackytext + '\n' + document.getElementById('origin').value.replace(/。/g, suffix[suffixNo]);
-    	mackytext =  conv + '\n';
-        mackytext =  mackytext + messages[messageNo] + '\n';
-    	document.getElementById('mackytext').value = mackytext;
-
-    }
     function tweet() {
         var left = Math.round(window.screen.width / 2 - 275);
         var top = (window.screen.height > 420) ? Math.round(window.screen.height / 2 - 210) : 0;
         window.open(
-            "https://twitter.com/intent/tweet?text=" + encodeURIComponent(document.getElementById("mackytext").value + " at: https://e99h2121.github.io/breakthrough-generator/" ),
+            "https://twitter.com/intent/tweet?text=" + encodeURIComponent(document.getElementById("nouveau").value + " at: https://e99h2121.github.io/breakthrough-generator/" ),
             null,
             "scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=550,height=420,left=" + left + ",top=" + top);
     }
     
 </script>
-
-<TABLE>
-  <TBODY>
-    <TR>
-      <TD><b>文章を貼り付ける</b></TD>
-    </TR>
-    <TR>
-      <TD>
-      <FONT size="-1">対象を貼り付けるのですぞ。</FONT>
-      </TD>
-    </TR>
-  </TBODY>
-</TABLE>
-<TABLE>
-  <TBODY>
-    <TR>
-      <TD><textarea cols="80" rows="5" id="origin"></textarea></TD>
-    </TR>
-    <TR>
-      <TD>
-        <p><input type="button" value="ブレイクスルーする" onclick="breakthrough();"></p>
-      </TD>
-    </TR>
-  </TBODY>
-</TABLE>
-<HR>
-<TABLE>
-    <TR>
-      <TD>
-        <p><textarea cols="80" rows="10" id="mackytext">ここに表示されるのですぞ。</textarea></p></TD>
-    </TR>
-</TABLE>
-<HR>
 
 <button id="tweet" onclick="tweet();">結果をTweetするのですぞ</button> 
 
