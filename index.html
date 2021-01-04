@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8">
-<!-- jQuery–{‘Ì -->
+<!-- jQueryæœ¬ä½“ -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <!-- jquery-csv -->
@@ -16,7 +16,7 @@
 $(function() {
 
   function parseCsv(data) {
-    // CSV‚ğ”z—ñ‚Å“Ç‚İ‚Ş
+    // CSVã‚’é…åˆ—ã§èª­ã¿è¾¼ã‚€
     var csv = $.csv.toArrays(data);
 
     var insert = '';
@@ -33,13 +33,13 @@ $(function() {
       insert = "";
     });
 
-    const messageNo = Math.floor( Math.random() * messages.length);
-    insert[messageNo];
+    //const messageNo = Math.floor( Math.random() * messages.length);
+    //insert[messageNo];
 
   }
 
-  // CSV‚Ì“Ç‚İ‚İ
-  $.get('data1.csv', parseCsv, 'text');
+  // CSVã®èª­ã¿è¾¼ã¿
+  $.get('index.csv', parseCsv, 'text');
 
 });
 
@@ -59,14 +59,14 @@ $(function() {
 <script type="text/javascript" charset="UTF-8">
     function breakthrough() {
         var conv = "";
-        const messages = ['–â‘è‰ğŒˆ‚±‚»‚ªd–‚Å‚ ‚è‚Ü‚·‚¼B',
-                          '–{“–‚Ìd–‚Æ‚ÍA‰½‚©‘å‚«‚È–â‘è‚É’¼–Ê‚µ‚½‚Æ‚«‚©‚çn‚Ü‚éB',
-                          'ƒvƒA‚à‚µ‚­‚Íƒvƒ‚Å‚ ‚é‚×‚«ƒ|ƒWƒVƒ‡ƒ“‚Ìd–l‚Ì–³©Šo‚â–³_Œo‚³‚ğu‚Ü‚Ê‚¯v‚ÆŒÄ‚Ñ‚Ü‚·B',
-                          '—á‚¦‚Îu‚Ç‚±‚Å‚à‚Â‚È‚ª‚éŒg‘Ñ“d˜bv‚Æ‚¢‚¤‚Ì‚ğl‚¦‚é‚Æ‚µ‚Ü‚µ‚å‚¤B‚±‚ê‚Í—‘z‚Æ‚µ‚ÄŒ¾‚¦‚ÎA¢ŠE’†‚Ì‚Ç‚±‚És‚Á‚Ä‚à‚Â‚È‚ª‚éA’n‰º‚¾‚ë‚¤‚ª‚‚¢R‚Ì‚Ä‚Á‚Ø‚ñ‚¾‚ë‚¤‚ªA‘¾•½—m‚Ì‚Ç^‚ñ’†‚¾‚ë‚¤‚ª’Ê˜b‚ª‚Å‚«‚é‚Á‚Ä‚¢‚¤‚Ì‚ª—‘z‚¶‚á‚ ‚è‚Ü‚¹‚ñ‚©H'];
+        const messages = ['å•é¡Œè§£æ±ºã“ããŒä»•äº‹ã§ã‚ã‚Šã¾ã™ãã€‚',
+                          'æœ¬å½“ã®ä»•äº‹ã¨ã¯ã€ä½•ã‹å¤§ããªå•é¡Œã«ç›´é¢ã—ãŸã¨ãã‹ã‚‰å§‹ã¾ã‚‹ã€‚',
+                          'ãƒ—ãƒ­ã€ã‚‚ã—ãã¯ãƒ—ãƒ­ã§ã‚ã‚‹ã¹ããƒã‚¸ã‚·ãƒ§ãƒ³ã®ä»•äº‹äººã®ç„¡è‡ªè¦šã‚„ç„¡ç¥çµŒã•ã‚’ã€Œã¾ã¬ã‘ã€ã¨å‘¼ã³ã¾ã™ã€‚',
+                          'ä¾‹ãˆã°ã€Œã©ã“ã§ã‚‚ã¤ãªãŒã‚‹æºå¸¯é›»è©±ã€ã¨ã„ã†ã®ã‚’è€ƒãˆã‚‹ã¨ã—ã¾ã—ã‚‡ã†ã€‚ã“ã‚Œã¯ç†æƒ³ã¨ã—ã¦è¨€ãˆã°ã€ä¸–ç•Œä¸­ã®ã©ã“ã«è¡Œã£ã¦ã‚‚ã¤ãªãŒã‚‹ã€åœ°ä¸‹ã ã‚ã†ãŒé«˜ã„å±±ã®ã¦ã£ãºã‚“ã ã‚ã†ãŒã€å¤ªå¹³æ´‹ã®ã©çœŸã‚“ä¸­ã ã‚ã†ãŒé€šè©±ãŒã§ãã‚‹ã£ã¦ã„ã†ã®ãŒç†æƒ³ã˜ã‚ƒã‚ã‚Šã¾ã›ã‚“ã‹ï¼Ÿ'];
         const messageNo = Math.floor( Math.random() * messages.length);
 
         var mackytext = "";
-    	//mackytext =  mackytext + '\n' + document.getElementById('origin').value.replace(/B/g, suffix[suffixNo]);
+    	//mackytext =  mackytext + '\n' + document.getElementById('origin').value.replace(/ã€‚/g, suffix[suffixNo]);
     	mackytext =  conv + '\n';
         mackytext =  mackytext + messages[messageNo] + '\n';
     	document.getElementById('mackytext').value = mackytext;
@@ -86,11 +86,11 @@ $(function() {
 <TABLE>
   <TBODY>
     <TR>
-      <TD><b>•¶Í‚ğ“\‚è•t‚¯‚é</b></TD>
+      <TD><b>æ–‡ç« ã‚’è²¼ã‚Šä»˜ã‘ã‚‹</b></TD>
     </TR>
     <TR>
       <TD>
-      <FONT size="-1">‘ÎÛ‚ğ“\‚è•t‚¯‚é‚Ì‚Å‚·‚¼B</FONT>
+      <FONT size="-1">å¯¾è±¡ã‚’è²¼ã‚Šä»˜ã‘ã‚‹ã®ã§ã™ãã€‚</FONT>
       </TD>
     </TR>
   </TBODY>
@@ -102,7 +102,7 @@ $(function() {
     </TR>
     <TR>
       <TD>
-        <p><input type="button" value="ƒuƒŒƒCƒNƒXƒ‹[‚·‚é" onclick="breakthrough();"></p>
+        <p><input type="button" value="ãƒ–ãƒ¬ã‚¤ã‚¯ã‚¹ãƒ«ãƒ¼ã™ã‚‹" onclick="breakthrough();"></p>
       </TD>
     </TR>
   </TBODY>
@@ -111,12 +111,12 @@ $(function() {
 <TABLE>
     <TR>
       <TD>
-        <p><textarea cols="80" rows="10" id="mackytext">‚±‚±‚É•\¦‚³‚ê‚é‚Ì‚Å‚·‚¼B</textarea></p></TD>
+        <p><textarea cols="80" rows="10" id="mackytext">ã“ã“ã«è¡¨ç¤ºã•ã‚Œã‚‹ã®ã§ã™ãã€‚</textarea></p></TD>
     </TR>
 </TABLE>
 <HR>
 
-<button id="tweet" onclick="tweet();">Œ‹‰Ê‚ğTweet‚·‚é‚Ì‚Å‚·‚¼</button> 
+<button id="tweet" onclick="tweet();">çµæœã‚’Tweetã™ã‚‹ã®ã§ã™ã</button> 
 
 </body>
 </html>
