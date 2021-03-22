@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
+
     <meta charset="utf-8">
     <title>CSS フォント</title>
-    <!-- <link rel="stylesheet" type="text/css" href="sample.css">-->
+    <!-- https://googlefonts.github.io/japanese/ -->
+    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/nikukyu.css" rel="stylesheet">
     <style>
+      body {
+        color:#630;
+        font-size:5em;
+      }
       p.font1{
-        font-family: fantasy;
+        font-family: cursive;
       }
       p.font2{
         font-family: serif;
       }
       p.font3{
-        font-family: cursive;
+        font-family: "Nikukyu";
       }
       p.font4{
-        font-family: "MS P明朝";
+        font-family: "Hannari";
       }
 
       /* 縦書き */
@@ -28,12 +35,10 @@
   </head>
   <body>
     <div class="v-writing">
-      <h1>カレーが<br>大好きだ<span class="tcy">!!</span></h1>
-
     <p class="font1" id="output_message1">fantasy</p>
     <p class="font2" id="output_message2">serif</p>
     <p class="font3" id="output_message3">fantasy</p>
-    <input type="text" id="input_message"  size="100" maxlength="100" value="ずんどこずんどこ">
+    <input type="text" id="input_message"  size="20" maxlength="100" value="カレーが大好きだ！">
     <p class="font4" id="output_message4">fantasy</p>
     <div id="output_message"></div>
 
