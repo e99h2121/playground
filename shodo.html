@@ -14,6 +14,9 @@
       p.font3{
         font-family: cursive;
       }
+      p.font4{
+        font-family: "MS P明朝";
+      }
 
       /* 縦書き */
       .v-writing {
@@ -30,7 +33,8 @@
     <p class="font1" id="output_message1">fantasy</p>
     <p class="font2" id="output_message2">serif</p>
     <p class="font3" id="output_message3">fantasy</p>
-    <input type="text" id="input_message"  size="100" maxlength="100" value="Hello My friend!!">
+    <input type="text" id="input_message"  size="100" maxlength="100" value="ずんどこずんどこ">
+    <p class="font4" id="output_message4">fantasy</p>
     <div id="output_message"></div>
 
     </div>
@@ -43,6 +47,7 @@
         document.getElementById("output_message1").innerHTML = input_message;
         document.getElementById("output_message2").innerHTML = input_message;
         document.getElementById("output_message3").innerHTML = input_message;
+        document.getElementById("output_message4").innerHTML = input_message;
       }
       document.getElementById("input_message").onchange = main;
       window.onload = main;
