@@ -14,15 +14,27 @@
       p.font3{
         font-family: cursive;
       }
+
+      /* 縦書き */
+      .v-writing {
+        writing-mode: vertical-rl;
+        display: inline-block;
+        text-align: left;
+      }
     </style>
   </head>
   <body>
+    <div class="v-writing">
+      <h1>カレーが<br>大好きだ<span class="tcy">!!</span></h1>
 
     <p class="font1" id="output_message1">fantasy</p>
     <p class="font2" id="output_message2">serif</p>
     <p class="font3" id="output_message3">fantasy</p>
     <input type="text" id="input_message"  size="100" maxlength="100" value="Hello My friend!!">
     <div id="output_message"></div>
+
+    </div>
+
 
     <script language="javascript" type="text/javascript">
      function main() {
