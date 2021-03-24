@@ -145,7 +145,7 @@
       #container {
         display: grid; 
         grid-template-rows: 20px 1fr ;
-        grid-template-columns: 200px 200px 200px 200px 200px 200px 200px 200px ;
+        grid-template-columns: repeat(8, 200px);
       }
       @font-face {
         font-family: 'MyFontreisyo';
@@ -158,16 +158,16 @@
     </style>
   </head>
   <body>
-    <p><input type="text" id="input_message"  size="20" maxlength="100" value="だいたんふてき"></p>
+    <p><input type="text" id="input_message"  size="100" maxlength="100" value="だいたんふてき"></p>
     <div id="container"> <!-- コンテナ -->
-      <div id="itemA">Kokoro</div><div id="item1"><p class="font1 v-writing" id="output_message1">test</p></div> <!-- アイテム -->
-      <div id="itemB">serif</div><div id="item2"><p class="font2 v-writing" id="output_message2">test</p></div> <!-- アイテム -->
-      <div id="itemC">Nikukyu</div><div id="item3"><p class="font3 v-writing" id="output_message3">test</p></div> <!-- アイテム -->
-      <div id="itemD">Hannari</div><div id="item4"><p class="font4 v-writing" id="output_message4">test</p></div> <!-- アイテム -->
-      <div id="itemE"><a href="https://opentype.jp/aoyagisosekifont.htm">青柳疎石</a></div><div id="item5"><p class="font5 v-writing" id="output_message5">test</p></div> <!-- アイテム -->
-      <div id="itemF">sans-serif</div><div id="item6"><p class="font6 v-writing" id="output_message6">test</p></div> <!-- アイテム -->
-      <div id="itemG">monospace</div><div id="item7"><p class="font7 v-writing" id="output_message7">test</p></div> <!-- アイテム -->
-      <div id="itemH"><a href="https://opentype.jp/aoyagireisho.htm">青柳隷書しも</a></div><div id="item8"><p class="font8 v-writing" id="output_message8">test</p></div> <!-- アイテム -->
+      <div id="itemA">Kokoro</div><div id="item1"><p class="font1 v-writing" id="output_message1">loading</p></div> <!-- アイテム -->
+      <div id="itemB">serif</div><div id="item2"><p class="font2 v-writing" id="output_message2">loading</p></div> <!-- アイテム -->
+      <div id="itemC"><a href="https://googlefonts.github.io/japanese/#nikukyu">Nikukyu</a></div><div id="item3"><p class="font3 v-writing" id="output_message3">loading</p></div> <!-- アイテム -->
+      <div id="itemD"><a href="https://googlefonts.github.io/japanese/#hannari">Hannari</a></div><div id="item4"><p class="font4 v-writing" id="output_message4">loading</p></div> <!-- アイテム -->
+      <div id="itemE"><a href="https://opentype.jp/aoyagisosekifont.htm">青柳疎石</a></div><div id="item5"><p class="font5 v-writing" id="output_message5">loading</p></div> <!-- アイテム -->
+      <div id="itemF">sans-serif</div><div id="item6"><p class="font6 v-writing" id="output_message6">loading</p></div> <!-- アイテム -->
+      <div id="itemG">monospace</div><div id="item7"><p class="font7 v-writing" id="output_message7">loading</p></div> <!-- アイテム -->
+      <div id="itemH"><a href="https://opentype.jp/aoyagireisho.htm">青柳隷書しも</a></div><div id="item8"><p class="font8 v-writing" id="output_message8">loading</p></div> <!-- アイテム -->
     </div>
 
 
@@ -182,6 +182,7 @@
         document.getElementById("output_message6").innerHTML = input_message;
         document.getElementById("output_message7").innerHTML = input_message;
         document.getElementById("output_message8").innerHTML = input_message;
+        //document.getElementById("osusume").style.fontSize = myFntCnt+"pt";
       }
       document.getElementById("input_message").onchange = main;
       window.onload = main;
