@@ -56,6 +56,12 @@
         background: #f88;
         text-align: center;
       }
+      #itemH {
+        grid-row: 1 / 2;
+        grid-column: 8 / 9;
+        background: #f88;
+        text-align: center;
+      }
       #item1 {
         grid-row: 2 / 3;
         grid-column: 1 / 2;
@@ -98,6 +104,12 @@
         background: #fff;
         font-size:5em;
       }
+      #item8 {
+        grid-row: 2 / 3;
+        grid-column: 8 / 9;
+        background: #fff;
+        font-size:5em;
+      }
 
       .font1{
         font-family: "Kokoro";
@@ -112,13 +124,16 @@
         font-family: "Hannari";
       }
       .font5{
-        font-family: fantasy;
+        font-family: 'MyFontsoseki';
       }
       .font6{
         font-family: sans-serif;
       }
       .font7{
         font-family: monospace;
+      }
+      .font8{
+        font-family: 'MyFontreisyo';
       }
 
       /* 縦書き */
@@ -130,7 +145,15 @@
       #container {
         display: grid; 
         grid-template-rows: 20px 1fr ;
-        grid-template-columns: 200px 200px 200px 200px 200px 200px 200px ;
+        grid-template-columns: 200px 200px 200px 200px 200px 200px 200px 200px ;
+      }
+      @font-face {
+        font-family: 'MyFontreisyo';
+        src: url('./fonts/aoyagireisyosimo_otf_2_01.otf') format("opentype");
+      }
+      @font-face {
+        font-family: 'MyFontsoseki';
+        src: url('./fonts/AoyagiSosekiFont2.otf') format("opentype");
       }
     </style>
   </head>
@@ -141,10 +164,10 @@
       <div id="itemB">serif</div><div id="item2"><p class="font2 v-writing" id="output_message2">test</p></div> <!-- アイテム -->
       <div id="itemC">Nikukyu</div><div id="item3"><p class="font3 v-writing" id="output_message3">test</p></div> <!-- アイテム -->
       <div id="itemD">Hannari</div><div id="item4"><p class="font4 v-writing" id="output_message4">test</p></div> <!-- アイテム -->
-      <div id="itemE">fantasy</div><div id="item5"><p class="font5 v-writing" id="output_message5">test</p></div> <!-- アイテム -->
+      <div id="itemE"><a href="https://opentype.jp/aoyagisosekifont.htm">青柳疎石</a></div><div id="item5"><p class="font5 v-writing" id="output_message5">test</p></div> <!-- アイテム -->
       <div id="itemF">sans-serif</div><div id="item6"><p class="font6 v-writing" id="output_message6">test</p></div> <!-- アイテム -->
       <div id="itemG">monospace</div><div id="item7"><p class="font7 v-writing" id="output_message7">test</p></div> <!-- アイテム -->
-
+      <div id="itemH"><a href="https://opentype.jp/aoyagireisho.htm">青柳隷書しも</a></div><div id="item8"><p class="font8 v-writing" id="output_message8">test</p></div> <!-- アイテム -->
     </div>
 
 
@@ -158,6 +181,7 @@
         document.getElementById("output_message5").innerHTML = input_message;
         document.getElementById("output_message6").innerHTML = input_message;
         document.getElementById("output_message7").innerHTML = input_message;
+        document.getElementById("output_message8").innerHTML = input_message;
       }
       document.getElementById("input_message").onchange = main;
       window.onload = main;
