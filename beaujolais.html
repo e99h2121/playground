@@ -1,49 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="Shift-JIS">
-<!-- jQuery本体 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
 
-<!-- jquery-csv -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.11/jquery.csv.min.js"></script>
 <script>
     
-$(function() {
 
-  function parseCsv(data) {
-    // CSVを配列で読み込む
-    var csv = $.csv.toArrays(data);
-
-    var insert = '';
-    var str = [];
-
-    $(csv).each(function(i) {
-      if (this.length > 0) {
-        insert += '<tr>';
-        $(this).each(function() {
-            insert += '<td>' + this + '</td>';
-        });
-        insert += '</tr>';
-      }
-      str.push(this[0] + '\n');
- 
-      var target = (i === 0) ? "thead" : "tbody";
-      $("#result "+target).append(insert);
-      insert = "";
-    });
-
-  }
-
-  // CSVの読み込み
-  $.get('data1.csv', parseCsv, 'text');
-  //const messageNo = Math.floor( Math.random() * str.length);
-
-
-
-});
-
-    function breakthrough() {
+    function makePhrase() {
        const messages = [
 'これまでで一番強くかつ攻撃的な _resv_',
 'ここ数年で一番出来が良い _resv_',
@@ -89,34 +52,9 @@ $(function() {
     </script>
 </head>
 <body>
-<!--
-  <table id="result">
-    <thead></thead>
-    <tbody></tbody>
-  </table>-->
     <p><label for="fname">味わいたいものを入力してください:</label><input type="text" id="fname" name="fname"><br></p>
-    <p><input type="button" value="ボジョる" onclick="breakthrough();"></p>
+    <p><input type="button" value="ボジョる" onclick="makePhrase();"></p>
     <p><textarea cols="80" rows="10" id="nouveau">ここにキャッチコピーを生成します</textarea></p>
 
 </body>
 </html>
-<!--
-<html>
-<body>
-<script type="text/javascript" charset="UTF-8">
-    function tweet() {
-        var left = Math.round(window.screen.width / 2 - 275);
-        var top = (window.screen.height > 420) ? Math.round(window.screen.height / 2 - 210) : 0;
-        window.open(
-            "https://twitter.com/intent/tweet?text=" + encodeURIComponent(document.getElementById("nouveau").value + " at: https://e99h2121.github.io/breakthrough-generator/" ),
-            null,
-            "scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=550,height=420,left=" + left + ",top=" + top);
-    }
-    
-</script>
-
-<button id="tweet" onclick="tweet();">結果をTweetするのですぞ</button> 
-
-</body>
-</html>
--->
