@@ -138,7 +138,17 @@
 
       /* 縦書き */
       .v-writing {
+        -ms-writing-mode: tb-rl;
         writing-mode: vertical-rl;
+      }
+      /* https://www.webcreatorbox.com/tech/writing-mode */
+      a {
+        text-decoration: none;
+        border-right: 1px dashed;
+        padding-right: 3px;
+      }
+      p {
+        text-indent: 1em;
       }
 
       /* グリッドレイアウト */
