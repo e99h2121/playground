@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+<script>
+        function getBeer(){
+            $.getJSON("https://api.punkapi.com/v2/beers/random", function( data ) {
+                $(".json pre").html(JSON.stringify(data, null, 4));
+                $(".explain").html("<p>" + data[0].description + "</p>");
+                $(".image-content").html("<img src='" + data[0].image_url + "'>");
+            });
+        }
+        $(document).ready(function() {
+            getBeer();
+        });
+</script>
+</head>
+<body>
+  <h4>Using the Beer as a Service</h4>
+  <hr>
+  <button type=“button” onclick="getBeer()">Fetch</button>
+  <div class="image-content"></div>
+  <div class="explain"></div>
+</body>
+</html>
