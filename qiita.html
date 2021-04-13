@@ -31,6 +31,8 @@
     }
     function jumpPage(){
         var page =  $("#page").val();
+        $("#url").val(['https://qiita.com/api/v2/tags?page='+page+'&per_page=100&sort=count']);
+        
         $.getJSON("https://qiita.com/api/v2/tags?page=" +page+ "&per_page=100&sort=count", function(json){
             //テーブルクリア
             $("#tbl").find("tr:gt(0)").remove();
@@ -95,6 +97,7 @@
 </head>
 <body>
     <p><label>Qiita: 記事数の多いタグランキング</label></p>
+    <label>Get: </label><input style="border-width:0px;border-style:None;" id="url" type="text" size="100" ><br>
     <input id="page" type="number" size="10" value="1" max="100" min="1"><input id="fetch" type="button" value="ページ目のデータ取得" />
     <div class="arrow">
     <p><img border=0 src="./images/double-arrow-point-to-left.png" width="16" height="16" alt="left" onclick="jump('first')" alt="最初へ" title="最初へ"></p>
