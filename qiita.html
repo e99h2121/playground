@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <title>Get Qiita Tags</title>
+    <title>Qiita Tags</title>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script type="text/javascript">
     
@@ -19,9 +19,6 @@
                 for (i = 0; i < json.length; i++) {
                     rows += "<tr>";
                     rows += "<td>";
-                    rows += json[i].followers_count;
-                    rows += "</td>";
-                    rows += "<td>";
                     rows += "<img border=0 src=\""+ json[i].icon_url +"\" width=\"32\" height=\"32\" alt=\"アイコン\"> ";
                     rows += "</td>";
                     rows += "<td>"; 
@@ -29,6 +26,9 @@
                     rows += "</td>";
                     rows += "<td>";
                     rows += json[i].items_count;
+                    rows += "</td>";
+                    rows += "<td>";
+                    rows += json[i].followers_count;
                     rows += "</td>";
                     rows += "</tr>";
                 }
@@ -56,8 +56,8 @@
     </style>
 </head>
 <body>
-    <input id="page" type="text" size="10" value="1"><input id="fetch" type="button" value="ページ目のデータ取得" />
-    <table id="tbl" border="0">
+    <input id="page" type="number" size="10" value="1" max="100" min="1"><input id="fetch" type="button" value="ページ目のデータ取得" />
+    <table id="tbl">
         <tbody>
             <tr>
                 <th>フォロワー数</th><th>アイコン</th><th>タグ名（ID）</th><th>記事数</th>
