@@ -6,37 +6,60 @@
     <script type="text/javascript">
     
     //画面構築完了後
+    function jump(pos){
+      switch (pos){
+      case 'first':
+        $("#page").val(['1']);
+        break;
+      case 'before':
+        $("#page").val(parseInt($("#page").val())-1);
+        break;
+      case 'after':
+        $("#page").val(parseInt($("#page").val())+1);
+        break;
+      case 'last':
+        $("#page").val(['100']);
+        break;
+      default:
+        $("#page").val(['1']);
+      }
+      jumpPage();
+    }
+    function jumpPage(){
+        var page =  $("#page").val();
+        $.getJSON("https://qiita.com/api/v2/tags?page=" +page+ "&per_page=100&sort=count", function(json){
+            //テーブルクリア
+            $("#tbl").find("tr:gt(0)").remove();
+            var rows = "";
+            //テーブルとして表示するため、htmlを構築
+            for (i = 0; i < json.length; i++) {
+                rows += "<tr>";
+                rows += "<td>";
+                rows += i+1+(page*100-100);
+                rows += "</td>";
+                rows += "<td>";
+                rows += "<img border=0 src=\""+ json[i].icon_url +"\" width=\"32\" height=\"32\" alt=\"アイコン\"> ";
+                rows += "</td>";
+                rows += "<td>"; 
+                rows += "<a href=\"https://qiita.com/tags/"+ json[i].id +"\" target=\"_blank\">"+ json[i].id +"</a>";
+                rows += "</td>";
+                rows += "<td>";
+                rows += json[i].items_count;
+                rows += "</td>";
+                rows += "<td>";
+                rows += json[i].followers_count;
+                rows += "</td>";
+                rows += "</tr>";
+            }
+            //テーブルに作成したhtmlを追加する
+            $("#tbl").append(rows);
+        });
+    }
     $(function() {
-
         //fetchボタンのクリック
         $("#fetch").click(function(){
-            var page =  $("#page").val();
-            $.getJSON("https://qiita.com/api/v2/tags?page=" +page+ "&per_page=100&sort=count", function(json){
-                //テーブルクリア
-                $("#tbl").find("tr:gt(0)").remove();
-                var rows = "";
-                //テーブルとして表示するため、htmlを構築
-                for (i = 0; i < json.length; i++) {
-                    rows += "<tr>";
-                    rows += "<td>";
-                    rows += "<img border=0 src=\""+ json[i].icon_url +"\" width=\"32\" height=\"32\" alt=\"アイコン\"> ";
-                    rows += "</td>";
-                    rows += "<td>"; 
-                    rows += "<a href=\"https://qiita.com/tags/"+ json[i].id +"\" target=\"_blank\">"+ json[i].id +"</a>";
-                    rows += "</td>";
-                    rows += "<td>";
-                    rows += json[i].items_count;
-                    rows += "</td>";
-                    rows += "<td>";
-                    rows += json[i].followers_count;
-                    rows += "</td>";
-                    rows += "</tr>";
-                }
-                //テーブルに作成したhtmlを追加する
-                $("#tbl").append(rows);
-            });
+            jumpPage();
         });
-        
     });
     </script>
     <style>
@@ -53,14 +76,22 @@
         text-align: center;
         padding: 10px 0;
       }
+      .arrow:hover{
+        cursor: pointer;
+      }
     </style>
 </head>
 <body>
+    <p><label>Qiitaのタグランキング</label></p>
     <input id="page" type="number" size="10" value="1" max="100" min="1"><input id="fetch" type="button" value="ページ目のデータ取得" />
-    <table id="tbl">
+    <p class="arrow"><img border=0 src="./images/double-arrow-point-to-left.png" width="16" height="16" alt="left" onclick="jump('first')">
+    <img border=0 src="./images/arrow-point-to-left.png" width="16" height="16" alt="left" onclick="jump('before')">
+    <img border=0 src="./images/arrow-point-to-right.png" width="16" height="16" alt="left" onclick="jump('after')">
+    <img border=0 src="./images/double-arrow-point-to-right.png" width="16" height="16" alt="left" onclick="jump('last')">
+    <table id="tbl"></p>
         <tbody>
             <tr>
-                <th>アイコン</th><th>タグ名（ID）</th><th>記事数</th><th>フォロワー数</th>
+                <th>順位</th><th>アイコン</th><th>タグ</th><th>記事数</th><th>フォロワー数</th>
             </tr>
         </tbody>
     </table>
