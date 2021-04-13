@@ -1,0 +1,67 @@
+<html>
+<head>
+    <title>Get Qiita Tags</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    
+    //画面構築完了後
+    $(function() {
+
+        //fetchボタンのクリック
+        $("#fetch").click(function(){
+            var page =  $("#page").val();
+            $.getJSON("https://qiita.com/api/v2/tags?page=" +page+ "&per_page=100&sort=count", function(json){
+                //テーブルクリア
+                $("#tbl").find("tr:gt(0)").remove();
+                var rows = "";
+                //テーブルとして表示するため、htmlを構築
+                for (i = 0; i < json.length; i++) {
+                    rows += "<tr>";
+                    rows += "<td>";
+                    rows += json[i].followers_count;
+                    rows += "</td>";
+                    rows += "<td>";
+                    rows += "<img border=0 src=\""+ json[i].icon_url +"\" width=\"32\" height=\"32\" alt=\"アイコン\"> ";
+                    rows += "</td>";
+                    rows += "<td>"; 
+                    rows += "<a href=\"https://qiita.com/tags/"+ json[i].id +"\" target=\"_blank\">"+ json[i].id +"</a>";
+                    rows += "</td>";
+                    rows += "<td>";
+                    rows += json[i].items_count;
+                    rows += "</td>";
+                    rows += "</tr>";
+                }
+                //テーブルに作成したhtmlを追加する
+                $("#tbl").append(rows);
+            });
+        });
+        
+    });
+    </script>
+    <style>
+      table{
+        width: 70%;
+        border-spacing: 0;
+      }
+      table th{
+        border-bottom: solid 2px #fb5144;
+        padding: 10px 0;
+      }
+      table td{
+        border-bottom: solid 2px #ddd;
+        text-align: center;
+        padding: 10px 0;
+      }
+    </style>
+</head>
+<body>
+    <input id="page" type="text" size="10" value="1"><input id="fetch" type="button" value="ページ目のデータ取得" />
+    <table id="tbl" border="0">
+        <tbody>
+            <tr>
+                <th>フォロワー数</th><th>アイコン</th><th>タグ名（ID）</th><th>記事数</th>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
