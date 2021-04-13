@@ -12,10 +12,14 @@
         $("#page").val(['1']);
         break;
       case 'before':
-        $("#page").val(parseInt($("#page").val())-1);
+        if (parseInt($("#page").val()) > 1) {
+          $("#page").val(parseInt($("#page").val())-1);
+        }
         break;
       case 'after':
-        $("#page").val(parseInt($("#page").val())+1);
+        if (parseInt($("#page").val()) < 100) {
+          $("#page").val(parseInt($("#page").val())+1);
+        }
         break;
       case 'last':
         $("#page").val(['100']);
@@ -38,7 +42,7 @@
                 rows += i+1+(page*100-100);
                 rows += "</td>";
                 rows += "<td>";
-                rows += "<img border=0 src=\""+ json[i].icon_url +"\" width=\"32\" height=\"32\" alt=\"アイコン\"> ";
+                rows += "<img border=0 src=\""+ json[i].icon_url +"\" width=\"32\" height=\"32\" alt=\"not available\"> ";
                 rows += "</td>";
                 rows += "<td>"; 
                 rows += "<a href=\"https://qiita.com/tags/"+ json[i].id +"\" target=\"_blank\">"+ json[i].id +"</a>";
@@ -77,19 +81,28 @@
         text-align: center;
         padding: 10px 0;
       }
-      .arrow:hover{
+      .arrow {
         cursor: pointer;
+        display: flex;
+        justify-content: flex-start;
       }
+      .arrow > *{
+        width: 5%;
+        background: #fff;
+      }
+      
     </style>
 </head>
 <body>
-    <p><label>Qiitaのタグランキング</label></p>
+    <p><label>Qiita: 記事数の多いタグランキング</label></p>
     <input id="page" type="number" size="10" value="1" max="100" min="1"><input id="fetch" type="button" value="ページ目のデータ取得" />
-    <p class="arrow"><img border=0 src="./images/double-arrow-point-to-left.png" width="16" height="16" alt="left" onclick="jump('first')">
-    <img border=0 src="./images/arrow-point-to-left.png" width="16" height="16" alt="left" onclick="jump('before')">
-    <img border=0 src="./images/arrow-point-to-right.png" width="16" height="16" alt="left" onclick="jump('after')">
-    <img border=0 src="./images/double-arrow-point-to-right.png" width="16" height="16" alt="left" onclick="jump('last')">
-    <table id="tbl"></p>
+    <div class="arrow">
+    <p><img border=0 src="./images/double-arrow-point-to-left.png" width="16" height="16" alt="left" onclick="jump('first')" alt="最初へ" title="最初へ"></p>
+    <p><img border=0 src="./images/arrow-point-to-left.png" width="16" height="16" alt="left" onclick="jump('before')" alt="前へ" title="前へ"></p>
+    <p><img border=0 src="./images/arrow-point-to-right.png" width="16" height="16" alt="left" onclick="jump('after')" alt="次へ" title="次へ"></p>
+    <p><img border=0 src="./images/double-arrow-point-to-right.png" width="16" height="16" alt="left" onclick="jump('last')" alt="最後へ" title="最後へ"></p>
+    </div>
+    <table id="tbl">
         <tbody>
             <tr>
                 <th>順位</th><th>アイコン</th><th>タグ</th><th>記事数</th><th>フォロワー数</th>
