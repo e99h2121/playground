@@ -2,6 +2,13 @@
 <html lang="ja">
 <head>
     <title>Qiita Tags</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+      integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ="
+      crossorigin="anonymous"
+    />
+
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script type="text/javascript">
     
@@ -83,27 +90,41 @@
         text-align: center;
         padding: 10px 0;
       }
-      .arrow {
-        cursor: pointer;
+      .navigation {
         display: flex;
-        justify-content: flex-start;
+        margin: 20px 0;
       }
-      .arrow > *{
-        width: 5%;
-        background: #fff;
+      .navigation .nav-button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 16px;
       }
-      
+      .navigation p {
+        margin: 0 25px;
+      }
     </style>
 </head>
 <body>
     <p><label>Qiita: 記事数の多いタグランキング</label></p>
     <label>Get: </label><input style="border-width:0px;border-style:None;" id="url" type="text" size="100" ><br>
-    <input id="page" type="number" size="10" value="1" max="100" min="1"><input id="fetch" type="button" value="ページ目のデータ取得" />
-    <div class="arrow">
-    <p><img border=0 src="./images/double-arrow-point-to-left.png" width="16" height="16" alt="left" onclick="jump('first')" alt="最初へ" title="最初へ"></p>
-    <p><img border=0 src="./images/arrow-point-to-left.png" width="16" height="16" alt="left" onclick="jump('before')" alt="前へ" title="前へ"></p>
-    <p><img border=0 src="./images/arrow-point-to-right.png" width="16" height="16" alt="left" onclick="jump('after')" alt="次へ" title="次へ"></p>
-    <p><img border=0 src="./images/double-arrow-point-to-right.png" width="16" height="16" alt="left" onclick="jump('last')" alt="最後へ" title="最後へ"></p>
+    <div class="navigation">
+      <input id="page" type="number" size="10" value="1" max="100" min="1"><input id="fetch" type="button" value="ページ目のデータ取得" />
+      <button id="prev" class="nav-button" onclick="jump('first')" title="最初へ">
+        <i class="fas fa-angle-double-left"></i>
+      </button>
+      <button id="prev" class="nav-button" onclick="jump('before')" title="前へ">
+        <i class="fas fa-angle-left"></i>
+      </button>
+
+      <p id="current"></p>
+
+      <button id="next" class="nav-button" onclick="jump('after')" title="次へ">
+        <i class="fas fa-angle-right"></i>
+      </button>
+      <button id="next" class="nav-button" onclick="jump('last')" title="最後へ">
+        <i class="fas fa-angle-double-right"></i>
+      </button>
     </div>
     <table id="tbl">
         <tbody>
