@@ -133,5 +133,23 @@
             </tr>
         </tbody>
     </table>
+    <div class="navigation">
+      <input id="page" type="number" size="10" value="1" max="100" min="1"><input id="fetch" type="button" value="ページ目のデータ取得" />
+      <button id="prev" class="nav-button" onclick="jump('first')" title="最初へ">
+        <i class="fas fa-angle-double-left"></i>
+      </button>
+      <button id="prev" class="nav-button" onclick="jump('before')" title="前へ">
+        <i class="fas fa-angle-left"></i>
+      </button>
+
+      <p id="current"></p>
+
+      <button id="next" class="nav-button" onclick="jump('after')" title="次へ">
+        <i class="fas fa-angle-right"></i>
+      </button>
+      <button id="next" class="nav-button" onclick="jump('last')" title="最後へ">
+        <i class="fas fa-angle-double-right"></i>
+      </button>
+    </div>
 </body>
 </html>
