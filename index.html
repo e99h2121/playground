@@ -15,14 +15,17 @@
       function winBox1() {
           var winbox = new WinBox("Custom Color and Open URL");
           winbox.setBackground("#ff005d");
-          winbox.body.innerHTML = "<h1>e99h2121</h1>";
           winbox.setUrl("https://e99h2121.github.io/")
       }
       function winBox2() {
           var winbox = new WinBox("Custom Color and Open URL");
           winbox.setBackground("#ff005d");
-          winbox.body.innerHTML = "<h1>日本語Wikipedia</h1>";
-          winbox.setUrl("https://ja.wikipedia.org/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8")
+          winbox.setUrl("https://e99h2121.github.io/playground/")
+      }
+      function winBox3() {
+          var winbox = new WinBox("Custom Color and Open URL");
+          winbox.setBackground("#ff005d");
+          winbox.body.innerHTML = "<h1>HTMLを入れられる。</h1><h2>世の中には、</h2><h3>便利なものを作る人がいますね..</h3>";
       }
   </script>
   <link rel="preload" href="./js/winbox.bundle.js" as="script">
@@ -32,8 +35,9 @@
   <h4>Using the Dog as a Service</h4>
   <hr>
   <button type="button" onclick="getDog()">Fetch</button> 
-  <button type="button" onclick="winBox1()">自分のサイト</button> 
-  <button type="button" onclick="winBox2()">Wikipedia</button> 
+  <button type="button" onclick="winBox1()">Home</button> 
+  <button type="button" onclick="winBox2()">Here</button> 
+  <button type="button" onclick="winBox3()">Message</button> 
   
   <div class="image-content">
   </div>
