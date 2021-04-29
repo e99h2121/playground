@@ -25,6 +25,16 @@
       function winBox3() {
           var winbox = new WinBox("Custom Color and Open URL");
           winbox.setBackground("#ff005d");
+          winbox.setUrl("https://e99h2121.github.io/playground/hello.html")
+      }
+      function winBox4() {
+          var winbox = new WinBox("Custom Color and Open URL");
+          winbox.setBackground("#ff005d");
+          winbox.setUrl("https://e99h2121.github.io/playground/hoverme.html")
+      }
+      function winBox5() {
+          var winbox = new WinBox("Custom Color and Open URL");
+          winbox.setBackground("#ff005d");
           winbox.body.innerHTML = "<h1>HTMLを入れられる。</h1><h2>世の中には、</h2><h3>便利なものを作る人がいますね..</h3>";
       }
   </script>
@@ -34,10 +44,13 @@
 <body>
   <h4>Using the Dog as a Service</h4>
   <hr>
-  <button type="button" onclick="getDog()">Fetch</button> 
   <button type="button" onclick="winBox1()">Home</button> 
   <button type="button" onclick="winBox2()">Here</button> 
-  <button type="button" onclick="winBox3()">Message</button> 
+  <button type="button" onclick="winBox3()">Hello</button> 
+  <button type="button" onclick="winBox4()">Hoverme</button> 
+  <button type="button" onclick="winBox5()">Message</button> 
+  <br>
+  <button type="button" onclick="getDog()">Fetch</button> 
   
   <div class="image-content">
   </div>
