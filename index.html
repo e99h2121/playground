@@ -2,23 +2,44 @@
 <html lang="ja">
 <head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
-<script>
-        function getDog(){
-            $.getJSON("https://dog.ceo/api/breeds/image/random", function( data ) {
-                $(".json pre").html(JSON.stringify(data, null, 4));
-                $(".image-content").html("<img src='" + data.message + "'>");
-            });
-        }
-        $(document).ready(function() {
-            getDog();
-        });
-</script>
+  <script>
+      function getDog(){
+          $.getJSON("https://dog.ceo/api/breeds/image/random", function( data ) {
+              $(".json pre").html(JSON.stringify(data, null, 4));
+              $(".image-content").html("<img src='" + data.message + "'>");
+          });
+      }
+      $(document).ready(function() {
+          getDog();
+      });
+      function winBox1() {
+          var winbox = new WinBox("Custom Color and Open URL");
+          winbox.setBackground("#ff005d");
+          winbox.body.innerHTML = "<h1>e99h2121</h1>";
+          winbox.setUrl("https://e99h2121.github.io/")
+      }
+      function winBox2() {
+          var winbox = new WinBox("Custom Color and Open URL");
+          winbox.setBackground("#ff005d");
+          winbox.body.innerHTML = "<h1>日本語Wikipedia</h1>";
+          winbox.setUrl("https://ja.wikipedia.org/wiki/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8")
+      }
+  </script>
+  <link rel="preload" href="./js/winbox.bundle.js" as="script">
+
 </head>
 <body>
   <h4>Using the Dog as a Service</h4>
   <hr>
-  <button type="button" onclick="getDog()">Fetch</button>
+  <button type="button" onclick="getDog()">Fetch</button> 
+  <button type="button" onclick="winBox1()">自分のサイト</button> 
+  <button type="button" onclick="winBox2()">Wikipedia</button> 
+  
   <div class="image-content">
-</div>
+  </div>
+  
+  <!-- BOTTOM OF BODY -->
+  <script src="./js/winbox.bundle.js" defer></script>
+
 </body>
 </html>
