@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <title>My Amazing Webpage</title>
+
+  <!-- slick.css -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+  </head>
+  <body>
+
+  <div class="my-class1">
+    <div><img src="https://i.picsum.photos/id/975/200/300.jpg?hmac=BGcA8uNiSpWczZjtm2d5f7y562W9AF2nh_3KDsyu_yM" /></div>
+    <div><img src="https://i.picsum.photos/id/715/200/300.jpg?hmac=jMgGkNrRGTz5pgw27YMTCyozftm33Rw2fPKQU2FypW4" /></div>
+    <div><img src="https://i.picsum.photos/id/24/200/300.jpg?hmac=UogR0hFxP5yLDwcZpCawObw8Bzm9vnzci_7eMrbqn_s" /></div>
+  </div>
+  <div class="my-class2">
+    <div><img src="https://i.picsum.photos/id/975/200/300.jpg?hmac=BGcA8uNiSpWczZjtm2d5f7y562W9AF2nh_3KDsyu_yM" /></div>
+    <div><img src="https://i.picsum.photos/id/715/200/300.jpg?hmac=jMgGkNrRGTz5pgw27YMTCyozftm33Rw2fPKQU2FypW4" /></div>
+    <div><img src="https://i.picsum.photos/id/24/200/300.jpg?hmac=UogR0hFxP5yLDwcZpCawObw8Bzm9vnzci_7eMrbqn_s" /></div>
+  </div>
+  
+  <!-- jqueryが必要 -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+  <!-- slick.js -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <!-- 以下で使いたいもの指定 -->
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('.my-class1').slick({
+      dots: true,
+      infinite: true,
+      speed: 500,
+      fade: true,
+      cssEase: 'linear'
+    });
+    $('.my-class2').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      centerMode: true,
+      autoplaySpeed: 2000
+    });
+
+  });
+  
+  </script>
+  </body>
+</html>
