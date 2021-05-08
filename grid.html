@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <title>My Amazing Webpage</title>
+<style>
+html, body, .grid-container { height: 100%; margin: 0; }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas:
+    "1 2 3 4 5 6 7 8 9 10"
+    "11 12 13 14 15 16 17 18 19 20"
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . .";
+}
+
+.a { grid-area: a; }
+
+.b { grid-area: b; }
+
+
+/* For presentation only, no need to copy the code below */
+.grid-container * {
+  border: 1px solid red;
+  position: relative;
+}
+
+.grid-container *:after {
+  content:attr(class);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+</style>
+  </head>
+  <body>
+  
+  <h3>
+  </h3>
+
+<div class="grid-container">
+  <div class="1"></div>
+  <div class="2"></div>
+  <div class="3"></div>
+  <div class="4"></div>
+  <div class="5"></div>
+  <div class="6"></div>
+  <div class="7"></div>
+  <div class="8"></div>
+  <div class="9"></div>
+  <div class="10"></div>
+  <div class="11"></div>
+  <div class="12"></div>
+  <div class="13"></div>
+  <div class="14"></div>
+  <div class="15"></div>
+  <div class="16"></div>
+  <div class="17"></div>
+  <div class="18"></div>
+  <div class="19"></div>
+  <div class="20"></div>
+  <div class="21"></div>
+  <div class="22"></div>
+  <div class="23"></div>
+  <div class="24"></div>
+  <div class="25"></div>
+  <div class="26"></div>
+  <div class="27"></div>
+  <div class="28"></div>
+  <div class="29"></div>
+  <div class="30"></div>
+</div>
+
+
+  </body>
+</html>
