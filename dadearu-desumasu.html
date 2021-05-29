@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>である・ですます Converter</title>
+    <!--<link rel="stylesheet" href="./css/style.css">-->
+    <script src="./js/dadearu-desumasu.js" defer></script>
+</head>
+
+<body>
+    <div class="main" id="main">
+        <p><textarea cols="80" rows="10" id="origin">ここに入力</textarea></p>
+        <button class="btn" id="convert2dadearu">だ・であるに変換</button>
+        <button class="btn" id="convert2desumasu">ですますに変換</button>
+        <p><textarea cols="80" rows="10" id="result">ここに表示</textarea></p>
+    </div>
+
+
+<script>
+function main() {
+    const convert2dadearu = document.getElementById("convert2dadearu");
+    const convert2desumasu = document.getElementById("convert2desumasu");
+    const origin = document.getElementById("origin");
+    const result = document.getElementById("result");
+
+    convert2dadearu.onclick = function() {
+        const data = origin.value;
+        if (data) {
+            result.value = toDadearu(data);
+        } else {
+            Error();
+        }
+    };
+    convert2desumasu.onclick = function() {
+        const data = origin.value;
+        if (data) {
+            result.value = toDesumasu(data);
+        } else {
+            Error();
+        }
+    };
+
+    function Error() {
+    }
+}
+
+main();
+
+</script>
+</body>
+
+
+</html>
