@@ -11,25 +11,39 @@
 <img id="thomas" src="https://e99h2121.github.io/playground/img/image.png" width=30% height=30% crossorigin="anonymous" />
 <label id="label1">Do you like Train?</label>
 
+<img id="scene" src="https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_960_720.jpg" width=40% height=40% crossorigin="anonymous" />
+<label id="label2">So beautiful.</label>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
 <script>
     const colorThief = new ColorThief();
-    const img = document.querySelector('img#thomas');
+    const img1 = document.querySelector('img#thomas');
     var color;
     // Make sure image is finished loading
-    if (img.complete) {
-      color = colorThief.getColor(img);
+    if (img1.complete) {
+      color = colorThief.getColor(img1);
     } else {
       image.addEventListener('load', function() {
-        color = colorThief.getColor(img);
+        color = colorThief.getColor(img1);
       });
     }
-    console.log(color);
-    var r = color[0];
-    var b = color[1];
-    var g = color[2];
-    var rbg = r + "," + b + "," + g;
+    // console.log(color);
+    var rbg = color[0] + "," + color[1] + "," + color[2];
     document.getElementById("label1").style.color = "rgb("+ rbg +")" ;
+    
+    
+    const img2 = document.querySelector('img#scene');
+    if (img2.complete) {
+      color = colorThief.getColor(img2);
+    } else {
+      image.addEventListener('load', function() {
+        color = colorThief.getColor(img2);
+      });
+    }
+    rbg = color[0] + "," + color[1] + "," + color[2];
+    document.getElementById("label1").style.color = "rgb("+ rbg +")" ;
+
 
 </script>
 
