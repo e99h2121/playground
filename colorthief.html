@@ -25,7 +25,11 @@
       });
     }
     console.log(color);
-    document.getElementById("label1").style.color = color;
+    var r = color[0];
+    var b = color[1];
+    var g = color[2];
+    var rbg = r + "," + b + "," + g;
+    document.getElementById("label1").style.color = "rgb("+ rbg +")" ;
 
 </script>
 
