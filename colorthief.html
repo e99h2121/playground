@@ -8,13 +8,13 @@
 
 <h2>https://lokeshdhakar.com/projects/color-thief/<h2>
 
-<img src="https://e99h2121.github.io/playground/img/image.png" width=30% height=30% crossorigin="anonymous" />
+<img id="thomas" src="https://e99h2121.github.io/playground/img/image.png" width=30% height=30% crossorigin="anonymous" />
 <label id="label1">Do you like Train?</label>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
 <script>
     const colorThief = new ColorThief();
-    const img = document.querySelector('img');
+    const img = document.querySelector('img#thomas');
     var color;
     // Make sure image is finished loading
     if (img.complete) {
@@ -25,8 +25,7 @@
       });
     }
     console.log(color);
-    var obj = document.getElementById("label1");
-    obj.style.color = color;
+    document.getElementById("label1").style.color = color;
 
 </script>
 
