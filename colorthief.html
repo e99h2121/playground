@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<h2>https://lokeshdhakar.com/projects/color-thief/<h2>
+
+<img src="https://e99h2121.github.io/playground/img/image.png" width=30% height=30% crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+<script>
+    const colorThief = new ColorThief();
+    const img = document.querySelector('img');
+
+    // Make sure image is finished loading
+    if (img.complete) {
+      colorThief.getColor(img);
+    } else {
+      image.addEventListener('load', function() {
+        colorThief.getColor(img);
+      });
+    }
+</script>
+
+</body>
+</html>
+
+
