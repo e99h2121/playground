@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+
+<script>
+
+function unEscape() {
+
+    var unicodeUnescape = function(utf8String) {
+        var result = '', strs = utf8String.match(/\\u.{4}/ig);
+        if (!strs) return '';
+        for (var i = 0, len = strs.length; i < len; i++) {
+            result += String.fromCharCode(strs[i].replace('\\u', '0x'));
+        }
+        return result;
+    };
+
+    var utf8String = "";
+    utf8String = document.getElementById('input').value;
+
+    var result = unicodeUnescape(utf8String);
+    document.getElementById('converterd').value = result;
+}
+
+    </script>
+</head>
+
+<body>
+    <p><label for="input">Unicode（¥uxxx形式）を入力:</label><p><textarea cols="120" rows="10" id="input"></textarea></p>
+    <p><input type="button" value="アンエスケープ" onclick="unEscape();"></p>
+    <p><textarea cols="120" rows="10" id="converterd">アンエスケープ後文字列</textarea></p>
+</body>
+</html>
