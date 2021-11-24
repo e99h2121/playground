@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+
+<script>
+
+function unRet() {
+
+    var inputstring = "";
+    var unret = function(inputstring) {
+        var result = inputstring.replace(/\r?\n/g,"");
+        return result;
+    };
+
+    inputstring = document.getElementById('input').value;
+
+    var result = unret(inputstring);
+    document.getElementById('converterd').value = result;
+}
+
+    </script>
+</head>
+
+<body>
+    <p><label for="input">改行付きの文字列を入力:</label><p><textarea cols="120" rows="10" id="input"></textarea></p>
+    <p><input type="button" value="改行" onclick="unRet();"></p>
+    <p><textarea cols="120" rows="10" id="converterd">改行後文字列</textarea></p>
+</body>
+</html>
