@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+
+<!-- adobe font -->
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'han5ukt',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+
+    <meta charset="utf-8">
+    <title>CSS縦書き日本語フォントと遊ぶ</title>
+    <!-- https://googlefonts.github.io/japanese/ -->
+    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/nikukyu.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Kaisei+Decol:wght@500&display=swap" rel="stylesheet">
+    <style>
+      body {
+        color:white;
+        font-family: "Kaisei Decol";
+        background-image: url(./img/heart.jpg);
+        font-size:5em;
+      }
+      /* グリッドレイアウト */
+      #container {
+        display: grid; 
+        gap: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <p><button type="button" onclick="smaller()">小さく</button><button type="button" onclick="larger()">大きく</button></p>
+    <p><input type="text" id="input_message"  size="100" maxlength="100" value="だいたんふてき"></p>
+    <div id="container"> <!-- コンテナ -->
+      <div id="item1"><p class="font1 v-writing" id="output_message1">loading</p></div> <!-- アイテム -->
+    </div>
+    <script language="javascript" type="text/javascript">
+     function main() {
+        var input_message = document.getElementById("input_message").value;
+        document.getElementById("output_message1").innerHTML = input_message;
+      }
+      document.getElementById("input_message").onchange = main;
+      window.onload = main;
+      var x = 100;
+      function larger() {
+        x *= 1.2; 
+        setCurrentValue(x);
+      }
+      function smaller(){ 
+        x /= 1.2; 
+        setCurrentValue(x);
+      }
+      const setCurrentValue = (s) => {
+        document.getElementById('output_message1').style.fontSize = x + '%'; 
+      }
+    </script>
+
+  </body>
+</html>
